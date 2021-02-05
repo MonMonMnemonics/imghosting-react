@@ -12,6 +12,17 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
+const ROUTES = [
+    {
+        name: "Home",
+        route: "/"
+    },
+    {
+        name: "About",
+        route: "/about"
+    }
+]
+
 const PageContainer: React.FC = ({ children }) => {
 
     const classes = useStyles();
@@ -20,6 +31,14 @@ const PageContainer: React.FC = ({ children }) => {
         disableHysteresis: true,
         threshold: 0
     });
+
+    const router = useRouter();
+    const route = ROUTES.findIndex(({route}) => router.pathname === route);
+    console.log({route})
+
+    const handleTabChange = (ev: React.ChangeEvent<{}>, newValue: number) => {
+        router.push(ROUTES[newValue].route);
+    }
 
     return (
         <>
@@ -30,6 +49,11 @@ const PageContainer: React.FC = ({ children }) => {
                         <Typography variant="caption">Is this even a real translation group?</Typography>
                     </div>
                 </Toolbar>
+                <Tabs value={route} onChange={handleTabChange} aria-label="simple tabs example">
+                    {ROUTES.map(({name}, idx) => 
+                        <Tab value={idx} label={name} />
+                    )}
+                </Tabs>
             </AppBar>
             <div>
                 {children}
