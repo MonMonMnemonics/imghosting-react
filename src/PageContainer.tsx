@@ -2,7 +2,7 @@ import classes from "*.module.css";
 import { AppBar, Button, makeStyles, Tab, Tabs, Toolbar, Typography, useScrollTrigger } from "@material-ui/core";
 import React from "react";
 import { useRouter } from "next/router"
-import Link from "./Link";
+import ROUTES from "./routes";
 
 const useStyles = makeStyles((theme) => ({
     headerWrapper: {
@@ -12,16 +12,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const ROUTES = [
-    {
-        name: "Home",
-        route: "/"
-    },
-    {
-        name: "About",
-        route: "/about"
-    }
-]
+
 
 const PageContainer: React.FC = ({ children }) => {
 
