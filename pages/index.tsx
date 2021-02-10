@@ -2,10 +2,9 @@ import { Button, Card, CardActions, CardContent, CardHeader, Container, FormCont
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import PageContainer from "../src/PageContainer";
+import Sidemenu from "../src/Sidemenu";
 import { useState } from 'react';
-
-
-
+import { useRouter } from 'next/router'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,9 +23,6 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         marginBottom: theme.spacing(4)
-    },
-    support: {
-        padding: theme.spacing(2)
     }
 }));
 
@@ -49,7 +45,7 @@ const MangaCard: React.FC<MangaCardProps> = ({ date, title }) => {
             </CardContent>
             <CardActions>
                 <div className={classes.cardControls}>
-                    <Button color="primary" variant="contained">Read</Button>
+                    <Button color="primary" variant="contained" href={"/Reader/" + title.replace(/\s/g, "_")}>Read</Button>
                 </div>
             </CardActions>
         </Card>
@@ -58,9 +54,7 @@ const MangaCard: React.FC<MangaCardProps> = ({ date, title }) => {
 
 const MANGAS: [string, Date][] = [
     ["Boku No Pico Ch69", new Date("1 April 2020")],
-    ["Boku No Pico Ch68", new Date("24 March 2020")],
-    ["Boku No Pico Ch67.420", new Date("6 March 2020")],
-    ["Wan Peesu", new Date("1 March 2020")]
+    ["Boku No Pico Ch68", new Date("24 March 2020")]
 ]
 
 type SortBy = "recent" | "popular";
@@ -68,12 +62,17 @@ type SortBy = "recent" | "popular";
 const Index = () => {
     const classes = useStyles();
     const [sortBy, setSortBy] = useState("recent");
+    const router = useRouter();
+    const { s } = router.query
+
     return (
         <PageContainer>
                 <Grid className={classes.root} container spacing={3}>
-                    <Grid item xs={4} />
                     <Grid item xs={3}>
-                        <Typography className={classes.header} variant="h5">Mangas and Shit</Typography>
+                    </Grid>                    
+
+                    <Grid item xs={6}>
+                        <Typography className={classes.header} variant="h5">Mangas</Typography>
                         <FormControl>
                             <InputLabel>Sort By</InputLabel>
                             <Select
@@ -91,11 +90,8 @@ const Index = () => {
 
                         
                     </Grid>
-                    <Grid item xs={2}>
-                        <Paper className={classes.support}>
-                            <Typography className={classes.header} variant="h5">Support us and shit</Typography>
-                            <Typography>idk you want a donate button or something? maybe two so one can fund my gin habit</Typography>
-                        </Paper>
+                    <Grid item xs={3}>
+                        <Sidemenu/>
                     </Grid>
                 </Grid>
         </PageContainer>

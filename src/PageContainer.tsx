@@ -1,5 +1,5 @@
 import classes from "*.module.css";
-import { AppBar, Button, makeStyles, Tab, Tabs, Toolbar, Typography, useScrollTrigger } from "@material-ui/core";
+import { AppBar, Button, Link, makeStyles, Tab, Tabs, Toolbar, Typography, useScrollTrigger } from "@material-ui/core";
 import React from "react";
 import { useRouter } from "next/router"
 import ROUTES from "./routes";
@@ -8,7 +8,12 @@ const useStyles = makeStyles((theme) => ({
     headerWrapper: {
         display: "flex",
         flexDirection: "column",
-        marginRight: theme.spacing(1)
+        marginRight: theme.spacing(1),
+        width:"98vw", 
+        maxWidth:"1050px",
+        '@media (max-width:600px)': {
+            textAlign:"center"   
+        }
     }
 }));
 
@@ -34,13 +39,13 @@ const PageContainer: React.FC = ({ children }) => {
     return (
         <>
             <AppBar elevation={trigger ? 4 : 0} position="static">
-                <Toolbar>
+                <Toolbar style={{ display:'flex', justifyContent:'center' }}>
                     <div className={classes.headerWrapper}>
-                        <Typography variant="h4">Imanity</Typography>
+                        <Link variant="h4" href="/" color="inherit" underline="none">Imanity</Link>
                         <Typography variant="caption">Is this even a real translation group?</Typography>
                     </div>
                 </Toolbar>
-                <Tabs value={route} onChange={handleTabChange} aria-label="simple tabs example">
+                <Tabs centered={true} value={route} onChange={handleTabChange} >
                     {ROUTES.map(({name}, idx) => 
                         <Tab value={idx} label={name} />
                     )}
