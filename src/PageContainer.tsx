@@ -14,10 +14,12 @@ const useStyles = makeStyles((theme) => ({
         '@media (max-width:600px)': {
             textAlign:"center"   
         }
+    },
+    logohead: {
+        width: "287px",
+        height: "150px"
     }
 }));
-
-
 
 const PageContainer: React.FC = ({ children }) => {
 
@@ -41,8 +43,7 @@ const PageContainer: React.FC = ({ children }) => {
             <AppBar elevation={trigger ? 4 : 0} position="static">
                 <Toolbar style={{ display:'flex', justifyContent:'center' }}>
                     <div className={classes.headerWrapper}>
-                        <Link variant="h4" href="/" color="inherit" underline="none">Imanity</Link>
-                        <Typography variant="caption">Is this even a real translation group?</Typography>
+                        <a href="/"><img className={classes.logohead} src={`/imanitypawn.png`}/></a>
                     </div>
                 </Toolbar>
                 <Tabs centered={true} value={route} onChange={handleTabChange} >

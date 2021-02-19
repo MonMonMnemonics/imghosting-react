@@ -13,6 +13,11 @@ const useStyles = makeStyles((theme) => ({
     rightToolbar: {
         marginLeft: "auto",
         marginRight: -12
+    },
+    logohead: {
+        width: "144px",
+        height: "75px",
+        padding: "5Zzpx"
     }
 }));
 
@@ -30,8 +35,7 @@ const ReaderHead: React.FC = ({ children }) => {
             <AppBar elevation={trigger ? 4 : 0} position="static">
                 <Toolbar>
                     <div className={classes.headerWrapper}>
-                        <Link variant="h4" href="/" color="inherit" underline="none">Imanity</Link>
-                        <Typography variant="caption">Is this even a real translation group?</Typography>
+                        <a href="/"><img className={classes.logohead} src={`/imanitypawn.png`}/></a>
                     </div>
 
                     <section className={classes.rightToolbar}>
