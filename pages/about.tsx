@@ -67,17 +67,6 @@ const About = () => {
                     <hr/>
 
                     <Typography variant={'h2'} gutterBottom={true}>
-                        History
-                    </Typography>
-                    <Typography display={'block'}>
-                        Our group was founded on April 22nd 2019 with a team of 8 people. As of today, we’ve now grown to a team of 20 active members.
-                    </Typography>
-                    <Typography display={'block'} paragraph={true}>
-                        Since we began, we’ve been continuously taking on even more interesting and challenging series, especially in terms of story and art style. In the future we’re aiming to take on even more projects and provide you with more consistently high quality scanlations, though if our biggest goals come to fruition, you may not just be reading scanlations from us.
-                    </Typography>
-                    <hr/>
-
-                    <Typography variant={'h2'} gutterBottom={true}>
                         Goal
                     </Typography>
                     <Typography display={'block'}>

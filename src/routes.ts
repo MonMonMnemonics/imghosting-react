@@ -6,5 +6,9 @@ export default [
     {
         name: "About",
         route: "/about"
+    },
+    {
+        name: "Series",
+        route: "/Series"
     }
 ]
