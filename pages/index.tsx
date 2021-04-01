@@ -6,10 +6,14 @@ import Sidemenu from "../src/Sidemenu";
 import { useState } from 'react';
 import { useRouter } from 'next/router'
 
+//  FOR ICONS
+import { Icon } from 'react-icons-kit'
+import { book_2 } from 'react-icons-kit/ikons'
+
 const useStyles = makeStyles((theme) => ({
     root: {
         margin: theme.spacing(9),
-        width: `calc(100% - ${theme.spacing(9) * 2}px)`
+        width: `calc(100% - ${theme.spacing(9) * 2}px)`,
     },
     cardRoot: {
         marginTop: theme.spacing(3),
@@ -23,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
     header: {
         marginBottom: theme.spacing(4)
-    }
+    },
 }));
 
 interface MangaCardProps {
@@ -42,10 +46,11 @@ const MangaCard: React.FC<MangaCardProps> = ({ date, title }) => {
                 <Typography variant="h6" gutterBottom>
                     {title}
                 </Typography>
+                <img src="https://via.placeholder.com/150"/>
             </CardContent>
             <CardActions>
                 <div className={classes.cardControls}>
-                    <Button color="primary" variant="contained" href={"/Reader/" + title.replace(/\s/g, "_")}>Read</Button>
+                    <Button style={{ background:'#912685' }} color="primary" variant="contained" href={"/Reader/" + title.replace(/\s/g, "_")}><Icon icon={book_2}/>&nbsp;Read</Button>
                 </div>
             </CardActions>
         </Card>
@@ -68,7 +73,7 @@ const Index = () => {
     return (
         <PageContainer>
                 <Grid className={classes.root} container spacing={3}>
-                    <Grid item xs={3}>
+                    <Grid item xs={2}>
                     </Grid>                    
 
                     <Grid item xs={6}>
@@ -90,7 +95,7 @@ const Index = () => {
 
                         
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}>
                         <Sidemenu/>
                     </Grid>
                 </Grid>

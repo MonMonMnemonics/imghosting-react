@@ -4,6 +4,10 @@ import React, { useState } from "react";
 import { useRouter } from "next/router"
 import ROUTES from "./routes";
 
+//FOR ICONS
+import { Icon } from 'react-icons-kit'
+import { magnifying_glass, paypal } from 'react-icons-kit/ikons'
+
 let useStyles = makeStyles((theme) => ({
     header: {
         marginBottom: theme.spacing(4)
@@ -27,10 +31,10 @@ const Sidemenu: React.FC = () => {
             <Box m={3}>
                 <Grid container direction="row" spacing={1} alignItems="center">
                     <Grid item>
-                        <TextField id="TextField_Search" label="Search..." variant="outlined" value={Search_String} onChange={ (e)=>setSearch(e.target.value)}/>
+                        <TextField style={{ background:'#FFFFFF', color:'#000000' }} id="TextField_Search" label="Search..." variant="outlined" value={Search_String} onChange={ (e)=>setSearch(e.target.value)}/>
                     </Grid>  
                     <Grid item>
-                        <Button color="primary" variant="contained" href={"/?s=" + Search_String} size="large">Search</Button>
+                        <Button style={{ background:'#912685' }} color="primary" variant="contained" href={"/?s=" + Search_String} size="large"><Icon icon={magnifying_glass}/>&nbsp;Search</Button>
                     </Grid>  
                 </Grid>
             </Box>
@@ -40,7 +44,7 @@ const Sidemenu: React.FC = () => {
                     <Typography className={classes.header} variant="h5">Support us</Typography>
                     <Typography>donation button should go here</Typography>
                     <div className={classes.DonationControl}>
-                        <Button color="primary" variant="contained" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Donate</Button>
+                        <Button style={{ background:'#912685' }} color="primary" variant="contained" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><Icon icon={paypal}/>&nbsp;Donate</Button>
                     </div>
                 </Paper>
             </Box>

@@ -20,7 +20,15 @@ const Reader = () => {
         <Grid className={classes.root} container spacing={3}>
           <Grid item xs={2}></Grid>
           <Grid item xs={8}>
-            <h1>fetch {title} here</h1>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
+            <img style={{ width: '100%'}} src="https://via.placeholder.com/600x800"/>
           </Grid>
           <Grid item xs={2}></Grid>
         </Grid>

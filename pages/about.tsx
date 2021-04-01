@@ -34,7 +34,7 @@ const About = () => {
     return <PageContainer>
         <Grid className={classes.root} container spacing={3}>
             <Grid item xs={1}></Grid>
-            <Grid item xs={7}>
+            <Grid item xs={6}>
                 <ThemeProvider theme={theme}>
                     <Typography variant={'h1'} align={'center'} gutterBottom={true}>
                         We’re Imanity Scans.
@@ -103,7 +103,7 @@ const About = () => {
 
                 </ThemeProvider>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={4}>
                 <Sidemenu/>
             </Grid>
         </Grid>

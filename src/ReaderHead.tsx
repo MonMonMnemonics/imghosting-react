@@ -4,6 +4,10 @@ import React from "react";
 import { useRouter } from "next/router"
 import ROUTES from "./routes";
 
+//  FOR ICONS
+import { Icon } from 'react-icons-kit'
+import { arrowRight,arrowLeft } from 'react-icons-kit/fa'
+
 const useStyles = makeStyles((theme) => ({
     headerWrapper: {
         display: "flex",
@@ -32,14 +36,14 @@ const ReaderHead: React.FC = ({ children }) => {
 
     return (
         <>
-            <AppBar elevation={trigger ? 4 : 0} position="static">
+            <AppBar elevation={trigger ? 4 : 0} position="static" style={{ background: '#000000' }}>
                 <Toolbar>
                     <div className={classes.headerWrapper}>
                         <a href="/"><img className={classes.logohead} src={`/imanitypawn.png`}/></a>
                     </div>
 
                     <section className={classes.rightToolbar}>
-                        <Button style={{ color:"white" }}> Prev </Button>
+                        <Button style={{ color:"white" }}><Icon icon={arrowLeft}/></Button>
                         <FormControl style={{ width:"15em" }}>
                             <Select style={{ color:"white", marginLeft:"1em", marginRight:"1em" }} displayEmpty={true}>
                                 <MenuItem value="">Selector</MenuItem>
@@ -48,7 +52,7 @@ const ReaderHead: React.FC = ({ children }) => {
                                 <MenuItem value={30}>30</MenuItem>
                             </Select>
                         </FormControl>
-                        <Button style={{ color:"white" }}> Next </Button>
+                        <Button style={{ color:"white" }}><Icon icon={arrowRight}/></Button>
                     </section>
                 </Toolbar>
             </AppBar>

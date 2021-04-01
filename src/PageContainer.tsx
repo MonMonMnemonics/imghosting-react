@@ -4,6 +4,11 @@ import React from "react";
 import { useRouter } from "next/router"
 import ROUTES from "./routes";
 
+//  FOR ICONS
+import { Icon } from 'react-icons-kit'
+import { home } from 'react-icons-kit/icomoon'
+import { questionCircle, listAlt } from 'react-icons-kit/fa'
+
 const useStyles = makeStyles((theme) => ({
     headerWrapper: {
         display: "flex",
@@ -40,19 +45,19 @@ const PageContainer: React.FC = ({ children }) => {
 
     return (
         <>
-            <AppBar elevation={trigger ? 4 : 0} position="static">
-                <Toolbar style={{ display:'flex', justifyContent:'center' }}>
+            <AppBar elevation={trigger ? 4 : 0} position="static" style={{ background: '#000000' }}>
+                <Toolbar style={{ display:'flex', justifyContent:'center'}}>
                     <div className={classes.headerWrapper}>
                         <a href="/"><img className={classes.logohead} src={`/imanitypawn.png`}/></a>
                     </div>
                 </Toolbar>
                 <Tabs centered={true} value={route} onChange={handleTabChange} >
-                    {ROUTES.map(({name}, idx) => 
-                        <Tab value={idx} label={name} />
-                    )}
+                    <Tab value={0} label={ <><div><Icon icon={home}/> HOME</div></>} />
+                    <Tab value={2} label={ <><div><Icon icon={listAlt}/> SERIES</div></>} />
+                    <Tab value={1} label={ <><div><Icon icon={questionCircle}/> ABOUT</div></>} />
                 </Tabs>
             </AppBar>
-            <div>
+            <div >
                 {children}
             </div>
         </>
