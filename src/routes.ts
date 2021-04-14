@@ -10,5 +10,9 @@ export default [
     {
         name: "Series",
         route: "/Series"
+    },
+    {
+        name: "DBDashboard",
+        route: "/DBDashboard"
     }
 ]

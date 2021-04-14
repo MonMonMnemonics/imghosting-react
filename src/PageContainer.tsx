@@ -55,6 +55,7 @@ const PageContainer: React.FC = ({ children }) => {
                     <Tab value={0} label={ <><div><Icon icon={home}/> HOME</div></>} />
                     <Tab value={2} label={ <><div><Icon icon={listAlt}/> SERIES</div></>} />
                     <Tab value={1} label={ <><div><Icon icon={questionCircle}/> ABOUT</div></>} />
+                    <Tab value={3} label={ <><div>Database Manager</div></>} />
                 </Tabs>
             </AppBar>
             <div >

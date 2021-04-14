@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import { Icon } from 'react-icons-kit'
 import { book_2 } from 'react-icons-kit/ikons'
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         margin: theme.spacing(9),
@@ -57,14 +58,26 @@ const MangaCard: React.FC<MangaCardProps> = ({ date, title }) => {
     )
 }
 
-const MANGAS: [string, Date][] = [
-    ["Boku No Pico Ch69", new Date("1 April 2020")],
-    ["Boku No Pico Ch68", new Date("24 March 2020")]
-]
-
 type SortBy = "recent" | "popular";
 
-const Index = () => {
+export async function getServerSideProps() {
+    const res = await fetch("http://localhost:33333/recent/");
+    const data = await res.json()
+  
+    if (!data) {
+      return {
+        notFound: true,
+      }
+    }
+  
+    return {
+      props: {
+        data
+      },
+    }
+  }
+
+const Index = ({ data }: any) => {
     const classes = useStyles();
     const [sortBy, setSortBy] = useState("recent");
     const router = useRouter();
@@ -89,10 +102,9 @@ const Index = () => {
                             </Select>
                         </FormControl>
                         
-                        {MANGAS.map(([title, date]) => (
-                            <MangaCard title={title} date={date.toDateString()} />
+                        {data.map((dt: any) => (
+                            <MangaCard title={dt.Chapter} date={new Date(dt.TimeStamp).toDateString()} />
                         ))}
-
                         
                     </Grid>
                     <Grid item xs={4}>

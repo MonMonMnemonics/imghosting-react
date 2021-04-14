@@ -2,8 +2,6 @@ import { useRouter } from 'next/router'
 import ReaderHead from '../../src/ReaderHead'
 import { Grid, makeStyles } from '@material-ui/core';
 
-import useSWR from "swr";
-
 const useStyles = makeStyles((theme) => ({
   root: {
       margin: theme.spacing(9),
@@ -11,21 +9,25 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const fetcher = (url: any) => fetch(url).then(res => res.json());
+export async function getServerSideProps(ctx: any) {
+  const res = await fetch("http://localhost:33333/chapter/" + ctx.params.title);
+  const data = await res.json()
 
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
 
-function Reader() {
+  return {
+    props: {
+      data
+    },
+  }
+}
+
+function Reader({ data } : any) {
   const classes = useStyles();
-  const router = useRouter();
-  const { title } = router.query;
-
-  const { data, error } = useSWR(
-    "http://localhost:33333/chapter/" + title,
-    fetcher
-  );
-
-  if (error) return "An error has occurred.";
-  if (!data) return "Loading...";
   return (
     <>
       <ReaderHead>
@@ -33,7 +35,6 @@ function Reader() {
           <Grid item xs={2}></Grid>
           <Grid item xs={8}>
              {data.map((dt: any) => (
-                //<li>{dt.filepath}</li>
                 <img style={{ width: '100%'}} src={"http://localhost:33333/image/" + dt.filepath }/>
               ))}
           </Grid>
@@ -44,4 +45,4 @@ function Reader() {
   )
 }
 
-export default Reader
+export default Reader;
