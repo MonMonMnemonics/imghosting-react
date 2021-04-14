@@ -54,6 +54,24 @@ const Sidemenu: React.FC = () => {
                     <Typography>Recent manga and stuff</Typography>
                 </Paper>
             </Box>
+
+            <Box mt={3} mb={3}>
+                <Paper className={classes.support}>
+                    <form method="POST" action="http://localhost:33333/upload-all" encType="multipart/form-data">
+                        <div>
+                            <label>Select multiple images:</label>
+                            <input type="file" name="images" multiple />
+                        </div>
+                        <div>
+                            <label>HeadPath</label>
+                            <input type="text" name="HeadPathX"/>
+                        </div>
+                        <div>
+                            <input type="submit" value="Upload" />
+                        </div>
+                    </form>
+                </Paper>
+            </Box>
         </>
     )
 }
