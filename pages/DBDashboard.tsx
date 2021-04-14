@@ -41,6 +41,10 @@ const DBDashboard = ({data} : any) => {
                                         <input type="text" name="ChapterIdx"/>
                                     </div>
                                     <div>
+                                        <label>Password</label>
+                                        <input type="password" name="Pass"/>
+                                    </div>
+                                    <div>
                                         <input type="submit" value="Upload" />
                                     </div>
                                 </form>
@@ -65,6 +69,10 @@ const DBDashboard = ({data} : any) => {
                                         </select> 
                                     </div>
                                     <div>
+                                        <label>Password</label>
+                                        <input type="password" name="Pass"/>
+                                    </div>
+                                    <div>
                                         <input type="submit" value="Upload" />
                                     </div>
                                 </form>
@@ -83,6 +91,10 @@ const DBDashboard = ({data} : any) => {
                                                 <option value={dt.Chapter}>{dt.Chapter + " (" + new Date(dt.TimeStamp).toDateString() + ")"}</option>
                                             ))}
                                         </select> 
+                                    </div>
+                                    <div>
+                                        <label>Password</label>
+                                        <input type="password" name="Pass"/>
                                     </div>
                                     <div>
                                         <input type="submit" value="Delete" />
