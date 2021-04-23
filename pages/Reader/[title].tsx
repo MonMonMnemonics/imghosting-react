@@ -35,7 +35,7 @@ function Reader({ data } : any) {
           <Grid item xs={2}></Grid>
           <Grid item xs={8}>
              {data.map((dt: any) => (
-                <img style={{ width: '100%'}} src={"http://localhost:33333/image/" + dt.filepath }/>
+                <img style={{ width: '100%'}} src={"http://174.138.18.61/repo/image/" + dt.filepath }/>
               ))}
           </Grid>
           <Grid item xs={2}></Grid>
