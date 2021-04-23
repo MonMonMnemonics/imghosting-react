@@ -31,7 +31,7 @@ const DBDashboard = ({data} : any) => {
                         <Box mt={3} mb={3}>
                             <Paper>
                                 <h1> UPLOAD NEW CHAPTER </h1>
-                                <form method="POST" action="http://localhost:33333/upload-new" encType="multipart/form-data">
+                                <form method="POST" action="http://174.138.18.61.repo/upload-new" encType="multipart/form-data">
                                     <div>
                                         <label>Select multiple images:</label>
                                         <input type="file" name="images" multiple />
@@ -55,7 +55,7 @@ const DBDashboard = ({data} : any) => {
                         <Box mt={3} mb={3}>
                             <Paper>
                             <h1> OVERWRITE CHAPTER </h1>
-                                <form method="POST" action="http://localhost:33333/upload-renew" encType="multipart/form-data">
+                                <form method="POST" action="http://174.138.18.61.repo/upload-renew" encType="multipart/form-data">
                                     <div>
                                         <label>Select multiple images:</label>
                                         <input type="file" name="images" multiple />
@@ -83,7 +83,7 @@ const DBDashboard = ({data} : any) => {
                         <Box mt={3} mb={3}>
                             <Paper>
                                 <h1> DELETE CHAPTER </h1>
-                                <form method="POST" action="http://localhost:33333/remove" encType="application/json">
+                                <form method="POST" action="http://174.138.18.61.repo/remove" encType="application/json">
                                     <div>
                                         <label>Chapter to delete:</label>
                                         <select name="ChapterIdx">
